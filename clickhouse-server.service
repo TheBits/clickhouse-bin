@@ -10,11 +10,10 @@ Group=clickhouse
 Restart=always
 RestartSec=30
 RuntimeDirectory=clickhouse-server
-StateDirectory=clickhouse clickhouse/tmp clickhouse/user_files clickhouse/format_schemas
+StateDirectory=clickhouse
 LogsDirectory=clickhouse-server
 ExecStart=/usr/bin/clickhouse-server --config=/etc/clickhouse-server/config.xml --pid-file=/run/clickhouse-server/clickhouse-server.pid
-LimitCORE=infinity
-LimitNOFILE=500000
+LimitNOFILE=262144
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_IPC_LOCK CAP_SYS_NICE
 
 [Install]
