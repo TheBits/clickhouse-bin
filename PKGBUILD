@@ -56,8 +56,10 @@ package_clickhouse-server() {
 	)
 
   	cd "$pkgname-$pkgver"
-	cp -r etc usr "$pkgdir/"
+	cp -r usr "$pkgdir/"
 	cp -r lib "$pkgdir/usr"
+	mkdir -p "$pkgdir/etc/clickhouse-server"
+	cp -r etc/clickhouse-server "$pkgdir/etc"
 	install -D "$srcdir/clickhouse.sysusers" "${pkgdir}/usr/lib/sysusers.d/clickhouse.conf"
 	install -D "$srcdir/clickhouse-server.service" "${pkgdir}/usr/lib/systemd/system/clickhouse-server.service"
 }
